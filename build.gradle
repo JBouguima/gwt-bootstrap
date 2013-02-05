@@ -1,8 +1,9 @@
-apply plugin:"java"
+apply plugin: 'java'
+apply plugin: 'gwt'
 
 prijectIdentity = "GWTBootstrap"
 
-gwtVersion = "2.5.0-rc1"
+gwtVersion = "2.5.0"
 
 task wrapper(type: Wrapper) {
     gradleVersion = 1.0
@@ -22,6 +23,7 @@ dependencies {
 		[group: 'com.google.gwt', name: 'gwt-servlet', version: gwtVersion],
 		[group: 'com.google.gwt', name: 'gwt-user', version: gwtVersion],
 		[group: 'com.google.gwt', name: 'gwt-dev', version: gwtVersion],
+		libraries.gwtTest
 	)
 	
 	//gwt compile
@@ -64,6 +66,7 @@ task compileGWT << {
 
 testOutputDir = "gradle-test-output"
 testModuleName = 'com.github.gwtbootstrap.Bootstrap'
+gwtModule = 'com.github.gwtbootstrap.Bootstrap'
 
 /**
 GWT-JUnitTests-compilation and create gwt-js.
